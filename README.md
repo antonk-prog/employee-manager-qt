@@ -1,10 +1,11 @@
 # employee-manager-qt
-## Comprehensive application designed to streamline the management of employee information and enhance organizational efficiency.
+#### Comprehensive application designed to streamline the management of employee information and enhance organizational efficiency.
 ![image](https://github.com/user-attachments/assets/fee15563-6031-4203-9668-d585ffd1ed26)
 
 This is a desktop offline application written with Qt. The application is available for Windows and Linux. The project has its own database, which is a simple binary file.
 
 Application features:
+
 _**1. Adding a new employee:**_
 ![image](https://github.com/user-attachments/assets/aefc6ba4-2d35-40b9-8f9b-4c81916e4d6b)
 
@@ -29,6 +30,7 @@ _**8. Searching for an employee by name/surname/patronymic/job position:**_
 ![image](https://github.com/user-attachments/assets/ca18d313-7e17-4772-9db1-6c01c1a03371)
 
 _**9. Ability to add a photo of an employee.**_
+
 _**10. Generating new employees.**_
 
 **HOW TO USE IT:**
