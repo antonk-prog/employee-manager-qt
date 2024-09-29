@@ -1,0 +1,97 @@
+--- employee.cpp
++++ employee.cpp
+@@ -112,51 +110,53 @@
+     this->salary = salary;
+ }
+ 
+-void Employee::set_reason_fire(QString text){
+-    reason_fire = text;
++void Employee::set_img_path(const QString &img_path) {
++    this->img_path = img_path;
+ }
+ 
+-// QByteArray Employee::serialize() const { // Из Employee в QByteArray
+-//     QDataStream stream;
+-//     Employee * employee = new Employee(get_first_name(), get_second_name(),
+-//                                       get_third_name(), get_titul(),
+-//                                       get_birth_date(), get_company_start_date(),
+-//                                       get_work_experience(), get_job_title(),
+-//                                       get_salary(), get_reason_fire()
+-//                                       );
+-//     stream << 1;//*employee;
++QByteArray Employee::serialize() const { // Из Employee в QByteArray
++    QDataStream stream;
++    Employee * employee = new Employee(get_first_name(), get_second_name(),
++                                      get_third_name(), get_titul(),
++                                      get_birth_date(), get_company_start_date(),
++                                      get_work_experience(), get_job_title(),
++                                      get_salary(), get_img_path()
++                                      );
++    stream << 1;//*employee;
+ 
+-//     qDebug() << sizeof(Employee);
+-//     qDebug() << sizeof(stream.device()->readAll());
+-//     if (!stream.atEnd()) {
+-//         return stream.device()->readAll();
+-//     } else {
+-//         // Обработка ошибки: поток достиг конца, но мы ожидали больше данных
+-//     }
+-//     return stream.device()->readAll(); // читаем все данные и возвращаем в виде QByteArray
++    qDebug() << sizeof(Employee);
++    qDebug() << sizeof(stream.device()->readAll());
++    if (!stream.atEnd()) {
++        return stream.device()->readAll();
++    } else {
++        // Обработка ошибки: поток достиг конца, но мы ожидали больше данных
++    }
++    return stream.device()->readAll(); // читаем все данные и возвращаем в виде QByteArray
+ 
+-// }
+-
+-// Employee Employee::deserialize(const QByteArray &data){ // из QByteArray в Employee
+-//     QDataStream stream(data);
+-//     QString first_name;
+-//     QString second_name;
+-//     QString third_name;
+-//     QString titul;
+-//     QDate birth_date;
+-//     QDate company_start_date;
+-//     qint32 work_experience;
+-//     QString job_title;
+-//     qint32 salary;
+-//     stream >> first_name >> second_name >> third_name
+-//         >> titul >> birth_date >> company_start_date
+-//         >> work_experience >> job_title >> salary;
+-
+-//     return Employee(first_name, second_name, third_name, titul,
+-//                     birth_date, company_start_date,
+-//                     work_experience, job_title, salary,
+-//                     );
+-// }
++}
++
++Employee Employee::deserialize(const QByteArray &data){ // из QByteArray в Employee
++    QDataStream stream(data);
++    QString first_name;
++    QString second_name;
++    QString third_name;
++    QString titul;
++    QDate birth_date;
++    QDate company_start_date;
++    qint32 work_experience;
++    QString job_title;
++    qint32 salary;
++    QString img_path;
++
++    stream >> first_name >> second_name >> third_name
++        >> titul >> birth_date >> company_start_date
++        >> work_experience >> job_title >> salary >> img_path;
++
++    return Employee(first_name, second_name, third_name, titul,
++                    birth_date, company_start_date,
++                    work_experience, job_title, salary, img_path
++                    );
++}
+ bool operator==(const Employee& lhs, const Employee& rhs) {
+     return lhs.get_first_name() == rhs.get_first_name() &&
+            lhs.get_second_name() == rhs.get_second_name() &&
