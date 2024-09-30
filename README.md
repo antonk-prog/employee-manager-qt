@@ -35,7 +35,7 @@ _**10. Generating new employees.**_
 
 **HOW TO USE IT:**
 1. Install the repository.
-2. Install Cutie.
+2. Install Qt.
 3. Open the .pro file in Qt Creator
 4. Run the build.
 
